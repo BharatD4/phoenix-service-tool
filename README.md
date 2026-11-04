@@ -1,7 +1,20 @@
 # ⚡ Phoenix Service Tool (Full-Stack GSM Servicing & Repair Ecosystem)
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-BharatD4%2Fphoenix--service--tool-181717?style=for-the-badge&logo=github)](https://github.com/BharatD4/phoenix-service-tool)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/BharatD4/phoenix-service-tool)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15.5.28-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+
 A complete, production-grade GSM Servicing & Mobile Software Repair platform inspired by [phoenixservicetool.com](https://phoenixservicetool.com). 
 It features a **Cloud Web Licensing Portal** and a **Standalone Windows Desktop Utility Client**, integrated via an encrypted cloud credit and hardware ID (HWID) verification engine.
+
+---
+
+## 🌐 Live Links & Repository
+
+* **GitHub Repository:** [https://github.com/BharatD4/phoenix-service-tool](https://github.com/BharatD4/phoenix-service-tool)
+* **1-Click Live Cloud Deployment:** [Deploy to Vercel Instantly](https://vercel.com/new/clone?repository-url=https://github.com/BharatD4/phoenix-service-tool)
 
 ---
 
@@ -13,7 +26,7 @@ phoenix-service-tool/
 │   ├── web/               # Next.js 15 Web Portal & Cloud Licensing Hub (Port 3000)
 │   │   ├── src/app/
 │   │   │   ├── page.tsx               # High-tech Cyberpunk Landing Page with 3D tool mockup
-│   │   │   ├── models/page.tsx        # Searchable Supported Models & Chipsets Matrix
+│   │   │   ├── models/page.tsx        # Searchable Supported Models & Chipsets Matrix (180+ devices)
 │   │   │   ├── downloads/page.tsx     # Setup v1.8.5 (.exe), WHQL USB Drivers & Changelogs
 │   │   │   ├── resellers/page.tsx     # Official Global Resellers & Distributors Directory
 │   │   │   ├── login/page.tsx         # Technician Authentication with 1-Click Demo Logins
@@ -29,6 +42,9 @@ phoenix-service-tool/
 │       ├── prisma/schema.prisma
 │       ├── prisma/seed.ts             # Realistic GSM Seed Database (Samsung S24, Xiaomi, MTK, etc.)
 │       └── dev.db                     # Active Local SQLite Database
+├── .github/workflows/
+│   └── ci.yml             # Automated CI pipeline for TypeScript & Production builds
+└── vercel.json            # Vercel Monorepo deployment configuration
 ```
 
 ---
@@ -87,4 +103,3 @@ pnpm dev
 * **`POST /api/tool/complete-operation`**: Atomically deducts credits from the technician's cloud wallet and logs device operation.
 * **`POST /api/reseller/transfer`**: DHRU Fusion / WebX GSM API compatible credit distribution endpoint.
 * **`POST /api/credits/topup`**: Instant recharge simulation for technicians.
-
