@@ -3,23 +3,24 @@
 import { useState, useEffect } from "react";
 import { Search, ShieldCheck, Cpu, ArrowLeft, Filter, ExternalLink, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { INITIAL_SUPPORTED_DEVICES } from "@/lib/devicesData";
 
 export default function ModelsPage() {
-  const [devices, setDevices] = useState<any[]>([]);
+  const [devices, setDevices] = useState<any[]>(INITIAL_SUPPORTED_DEVICES);
   const [search, setSearch] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("ALL");
   const [selectedMode, setSelectedMode] = useState("ALL");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch("/api/models")
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
-          setDevices(data.devices || []);
+        if (data.success && data.devices && data.devices.length > 0) {
+          setDevices(data.devices);
         }
       })
-      .finally(() => setLoading(false));
+      .catch(() => {});
   }, []);
 
   const brands = ["ALL", "SAMSUNG", "XIAOMI", "TECNO", "INFINIX", "NOKIA", "VIVO"];

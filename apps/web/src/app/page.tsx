@@ -19,17 +19,19 @@ import {
   Laptop
 } from "lucide-react";
 
+import { INITIAL_SUPPORTED_DEVICES } from "@/lib/devicesData";
+
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [models, setModels] = useState<any[]>([]);
+  const [models, setModels] = useState<any[]>(INITIAL_SUPPORTED_DEVICES);
   const [selectedBrand, setSelectedBrand] = useState("ALL");
 
   useEffect(() => {
     fetch("/api/models")
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
-          setModels(data.devices || []);
+        if (data.success && data.devices && data.devices.length > 0) {
+          setModels(data.devices);
         }
       })
       .catch(() => {});
@@ -37,10 +39,14 @@ export default function HomePage() {
 
   const filteredModels = models.filter((m) => {
     const matchesBrand = selectedBrand === "ALL" || m.brand.toUpperCase() === selectedBrand.toUpperCase();
+    const query = searchQuery.trim().toLowerCase();
     const matchesSearch =
-      m.modelName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.modelCode.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.chipset.toLowerCase().includes(searchQuery.toLowerCase());
+      !query ||
+      m.modelName.toLowerCase().includes(query) ||
+      m.modelCode.toLowerCase().includes(query) ||
+      m.chipset.toLowerCase().includes(query) ||
+      m.features.toLowerCase().includes(query) ||
+      m.brand.toLowerCase().includes(query);
     return matchesBrand && matchesSearch;
   });
 
