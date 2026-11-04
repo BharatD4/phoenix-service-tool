@@ -115,12 +115,38 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-          <p>© 2026 Phoenix Service Tool Team. All rights reserved.</p>
-          <div className="flex gap-4 mt-2 sm:mt-0 text-[11px]">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            <p>© 2026 Phoenix Service Tool. All rights reserved.</p>
+          </div>
+
+          {/* Developer Portfolio Credit */}
+          <div className="flex items-center gap-2 rounded-full bg-white/[0.04] border border-white/10 px-4 py-1.5 backdrop-blur-md">
+            <span className="text-slate-400 text-xs">
+              Designed & Developed by{" "}
+              <a
+                href="https://github.com/BharatD4"
+                target="_blank"
+                rel="noreferrer"
+                className="font-bold text-white hover:text-purple-300 underline decoration-purple-500/50 underline-offset-4 transition-colors"
+              >
+                Bharat Dewangan
+              </a>
+            </span>
+            <a
+              href="https://github.com/BharatD4"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[10px] rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 hover:bg-purple-500/30 transition-colors font-medium"
+            >
+              @BharatD4
+            </a>
+          </div>
+
+          <div className="flex gap-4 text-[11px] text-slate-500">
             <span>Terms of Service</span>
             <span>Privacy Policy</span>
-            <span>Security Guidelines</span>
+            <span>Security</span>
           </div>
         </div>
       </div>

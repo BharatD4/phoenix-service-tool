@@ -103,3 +103,14 @@ pnpm dev
 * **`POST /api/tool/complete-operation`**: Atomically deducts credits from the technician's cloud wallet and logs device operation.
 * **`POST /api/reseller/transfer`**: DHRU Fusion / WebX GSM API compatible credit distribution endpoint.
 * **`POST /api/credits/topup`**: Instant recharge simulation for technicians.
+
+---
+
+## 👨‍💻 Developer & Author
+
+**Designed & Developed by Bharat Dewangan**
+* **GitHub Profile:** [@BharatD4](https://github.com/BharatD4)
+* **GitHub Repository:** [https://github.com/BharatD4/phoenix-service-tool](https://github.com/BharatD4/phoenix-service-tool)
+* **Live Deployment:** [https://phoenix-service-tool-beta.vercel.app](https://phoenix-service-tool-beta.vercel.app)
+* **Interactive Tool Simulator:** [https://phoenix-service-tool-beta.vercel.app/tool](https://phoenix-service-tool-beta.vercel.app/tool)
+
