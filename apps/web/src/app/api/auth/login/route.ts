@@ -1,5 +1,6 @@
 import { prisma } from "@phoenix/db";
 import { NextResponse } from "next/server";
+import { memoryUserStore } from "@/lib/userStore";
 
 export async function POST(req: Request) {
   try {
@@ -12,11 +13,28 @@ export async function POST(req: Request) {
       );
     }
 
-    const user = await prisma.user.findFirst({
-      where: {
-        OR: [{ username }, { email: username }],
-      },
-    });
+    let user: any = null;
+
+    try {
+      user = await prisma.user.findFirst({
+        where: {
+          OR: [{ username }, { email: username }],
+        },
+      });
+
+      if (user && hwid && !user.hwid) {
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { hwid },
+        });
+      }
+    } catch (dbErr) {
+      console.warn("Prisma fallback activated for login:", dbErr);
+      user = memoryUserStore.findUser(username);
+      if (user && hwid && !user.hwid) {
+        user = memoryUserStore.updateUser(user.id, { hwid });
+      }
+    }
 
     if (!user || user.passwordHash !== password) {
       return NextResponse.json(
@@ -32,14 +50,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Update HWID if provided and not set
-    if (hwid && !user.hwid) {
-      await prisma.user.update({
-        where: { id: user.id },
-        data: { hwid },
-      });
-    }
-
     const response = NextResponse.json({
       success: true,
       user: {
@@ -53,7 +63,6 @@ export async function POST(req: Request) {
       },
     });
 
-    // Set simple session cookie
     response.cookies.set("pst_session", user.id, {
       path: "/",
       httpOnly: false,
@@ -63,9 +72,8 @@ export async function POST(req: Request) {
     return response;
   } catch (error: any) {
     return NextResponse.json(
-      { success: false, message: error.message },
+      { success: false, message: error.message || "Login failed" },
       { status: 500 }
     );
   }
 }
-
