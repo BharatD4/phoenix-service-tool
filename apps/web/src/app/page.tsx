@@ -72,13 +72,14 @@ export default function HomePage() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 pt-2">
-                <Link
-                  href="/downloads"
+                <a
+                  href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
+                  download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
                   className="flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-6 py-3.5 text-sm font-bold text-black shadow-cyan hover:opacity-95 transition-all transform hover:-translate-y-0.5"
                 >
                   <Download className="h-4 w-4" />
                   Download Tool v1.8.5 (.exe)
-                </Link>
+                </a>
 
                 <a
                   href="http://localhost:3001"
@@ -545,13 +546,14 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <Link
-              href="/downloads"
+            <a
+              href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
+              download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
               className="flex items-center gap-2 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-black hover:bg-cyan-300 transition-colors shadow-cyan"
             >
               <Download className="h-4 w-4" />
               Download Official Installer (.exe)
-            </Link>
+            </a>
             <a
               href="http://localhost:3001"
               target="_blank"

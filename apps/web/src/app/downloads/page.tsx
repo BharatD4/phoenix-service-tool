@@ -20,8 +20,15 @@ export default function DownloadsPage() {
   }, []);
 
   const handleSimulateDownload = (filename: string) => {
-    setDownloadSuccess(`Download started for ${filename}. Verification hash checked.`);
+    setDownloadSuccess(`Downloading ${filename}... Your download has started.`);
     setTimeout(() => setDownloadSuccess(null), 5000);
+  };
+
+  const getDriverFile = (category: string) => {
+    if (category === "Qualcomm") return "/downloads/Qualcomm_QDLoader_9008_Driver_x64.zip";
+    if (category === "MediaTek") return "/downloads/MTK_USB_All_Drivers_v1.0.8.zip";
+    if (category === "Samsung") return "/downloads/SAMSUNG_USB_Driver_for_Mobile_Phones.exe";
+    return "/downloads/libusb-win32-devel-filter-1.2.6.0.exe";
   };
 
   const latest = data.latestRelease || {
@@ -98,13 +105,15 @@ export default function DownloadsPage() {
 
             {/* Download Buttons */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <button
-                onClick={() => handleSimulateDownload(latest.fileName)}
+              <a
+                href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
+                download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
+                onClick={() => handleSimulateDownload("Phoenix_Service_Tool_Setup_v1.8.5.exe")}
                 className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-6 py-3.5 text-sm font-bold text-black shadow-cyan hover:opacity-95 transition-all"
               >
                 <Download className="h-4 w-4" />
                 Download Setup v1.8.5 (.exe)
-              </button>
+              </a>
 
               <a
                 href="http://localhost:3001"
@@ -161,12 +170,14 @@ export default function DownloadsPage() {
 
               <div className="flex items-center justify-between pt-4 border-t border-slate-800/80">
                 <span className="text-[11px] font-mono text-slate-400">Ver: {driver.version}</span>
-                <button
+                <a
+                  href={getDriverFile(driver.category)}
+                  download
                   onClick={() => handleSimulateDownload(driver.name)}
                   className="flex items-center gap-1.5 rounded-lg bg-slate-900 border border-slate-700 px-3.5 py-1.5 text-xs font-mono font-bold text-cyan-400 hover:border-cyan-400 hover:bg-slate-800 transition-colors"
                 >
                   <Download className="h-3.5 w-3.5" /> Download Driver
-                </button>
+                </a>
               </div>
             </div>
           ))}
