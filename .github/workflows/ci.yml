@@ -42,3 +42,4 @@ jobs:
 
       - name: Build Desktop Client
         run: pnpm --filter @phoenix/desktop build
+

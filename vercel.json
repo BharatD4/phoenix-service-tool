@@ -5,3 +5,4 @@
   "buildCommand": "pnpm --filter @phoenix/db generate && pnpm --filter @phoenix/web build",
   "outputDirectory": "apps/web/.next"
 }
+
