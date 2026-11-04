@@ -1,30 +1,30 @@
 import Link from "next/link";
-import { Flame, ShieldCheck, Download, Terminal, MessageSquare, Send } from "lucide-react";
+import { Flame, Send, MessageSquare } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-[#060a10] text-slate-400 py-12">
+    <footer className="border-t border-slate-800/80 bg-[#070b13] text-slate-400 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
-                <Flame className="h-5 w-5 text-black" />
+          <div className="space-y-3.5">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600">
+                <Flame className="h-4 w-4 text-black" />
               </div>
-              <span className="font-extrabold tracking-wider text-white text-lg">
+              <span className="font-bold tracking-tight text-white text-base">
                 PHOENIX SERVICE TOOL
               </span>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
-              The premier Windows mobile servicing software for authorized technicians. Instant FRP bypass, EDL 9008 Sahara auth, and BROM unlock for Android devices worldwide.
+              The modern Windows mobile servicing utility for professional technicians. One-click FRP bypass, EDL 9008 Sahara auth, and BROM unlock.
             </p>
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex items-center gap-2.5 pt-1">
               <a
                 href="https://t.me/phoenixservicetool"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 rounded-md bg-slate-900 border border-slate-800 px-2.5 py-1 text-xs text-cyan-400 hover:border-cyan-500"
+                className="flex items-center gap-1.5 rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs font-medium text-sky-400 hover:border-slate-700 transition-colors"
               >
                 <Send className="h-3 w-3" />
                 Telegram Channel
@@ -33,7 +33,7 @@ export function Footer() {
                 href="https://wa.me/971501234567"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 rounded-md bg-slate-900 border border-slate-800 px-2.5 py-1 text-xs text-emerald-400 hover:border-emerald-500"
+                className="flex items-center gap-1.5 rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs font-medium text-emerald-400 hover:border-slate-700 transition-colors"
               >
                 <MessageSquare className="h-3 w-3" />
                 WhatsApp Help
@@ -43,13 +43,13 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
               Platform & Tools
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/models" className="hover:text-cyan-400 transition-colors">
-                  Supported Models & Test Points
+                  Supported Models & Chipsets
                 </Link>
               </li>
               <li>
@@ -63,8 +63,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="http://localhost:3001" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">
-                  Launch Desktop Client
+                <a href="http://localhost:3001" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400">
+                  Desktop Client Simulator
                 </a>
               </li>
             </ul>
@@ -72,7 +72,7 @@ export function Footer() {
 
           {/* Resellers & Licensing */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
               Resellers & Credits
             </h4>
             <ul className="space-y-2 text-xs">
@@ -101,21 +101,21 @@ export function Footer() {
 
           {/* Technical Notice */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
               Technician Notice
             </h4>
             <p className="text-[11px] leading-relaxed text-slate-500">
-              Phoenix Service Tool is intended solely for legal repair, device maintenance, and data recovery by certified mobile technicians and device owners. Always verify customer ownership before servicing.
+              Phoenix Service Tool is intended solely for legal repair, device maintenance, and data recovery by certified mobile technicians and device owners.
             </p>
-            <div className="text-[11px] font-mono text-cyan-400/80">
+            <div className="text-[11px] text-slate-400 font-medium">
               Build Version: 1.8.5-RELEASE-2026.11
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+        <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
           <p>© 2026 Phoenix Service Tool Team. All rights reserved.</p>
-          <div className="flex gap-4 mt-2 sm:mt-0">
+          <div className="flex gap-4 mt-2 sm:mt-0 text-[11px]">
             <span>Terms of Service</span>
             <span>Privacy Policy</span>
             <span>Security Guidelines</span>
@@ -125,4 +125,3 @@ export function Footer() {
     </footer>
   );
 }
-

@@ -243,3 +243,4 @@ export const INITIAL_SUPPORTED_DEVICES: SupportedDeviceItem[] = [
     status: "SUPPORTED",
   },
 ];
+

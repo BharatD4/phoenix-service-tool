@@ -16,9 +16,10 @@ import {
   Coins,
   Globe,
   Lock,
-  Laptop
+  Laptop,
+  Layers,
+  Sparkles,
 } from "lucide-react";
-
 import { INITIAL_SUPPORTED_DEVICES } from "@/lib/devicesData";
 
 export default function HomePage() {
@@ -51,146 +52,144 @@ export default function HomePage() {
   });
 
   return (
-    <div className="space-y-24 pb-20">
-      {/* HERO SECTION */}
-      <section className="relative pt-12 md:pt-20 overflow-hidden">
+    <div className="space-y-24 pb-24">
+      {/* 1. HERO SECTION */}
+      <section className="relative pt-12 md:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Headlines & CTAs */}
+            {/* Left Column: Headlines & Call to Actions */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/40 px-3.5 py-1 text-xs font-mono font-bold text-cyan-300 shadow-cyan">
-                <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                PHOENIX SERVICE TOOL v1.8.5 — 2026 PATCH READY
+              {/* Announcement Pill */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-400">
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>Phoenix Service Tool v1.8.5 — 2026 Patch Ready</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-                Professional <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                  Mobile Servicing &
-                </span>{" "}
-                <br />
-                Software Repair Hub
+              {/* Main Headline */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+                Professional Mobile Servicing &{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
+                  Software Repair Hub
+                </span>
               </h1>
 
+              {/* Description */}
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                The all-in-one software servicing platform for GSM technicians. Instant Samsung MTP FRP bypass, Xiaomi HyperOS Sideload unlock, Qualcomm EDL 9008 Sahara auth, and MediaTek BROM repair without hardware dongles.
+                The modern Windows servicing utility for professional mobile technicians. Instant Samsung MTP FRP bypass, Xiaomi HyperOS Sideload, Qualcomm EDL 9008 Sahara auth, and MediaTek BROM repair with no dongle required.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-wrap gap-3.5 pt-2">
                 <a
                   href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
                   download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
-                  className="flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 px-6 py-3.5 text-sm font-bold text-black shadow-cyan hover:opacity-95 transition-all transform hover:-translate-y-0.5"
+                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/20 hover:opacity-95 transition-all transform hover:-translate-y-0.5"
                 >
                   <Download className="h-4 w-4" />
                   Download Tool v1.8.5 (.exe)
                 </a>
 
+                <Link
+                  href="/models"
+                  className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-5 py-3.5 text-sm font-semibold text-slate-200 hover:text-white hover:border-slate-600 transition-colors"
+                >
+                  Supported Models
+                  <ArrowRight className="h-4 w-4 text-cyan-400" />
+                </Link>
+
                 <a
                   href="http://localhost:3001"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 rounded-xl border border-cyan-500/40 bg-[#0f172a] px-6 py-3.5 text-sm font-mono font-bold text-cyan-300 hover:bg-slate-800 hover:border-cyan-400 transition-all shadow-cyan"
+                  className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3.5 text-xs font-mono text-slate-400 hover:text-slate-200 transition-colors"
                 >
-                  <Terminal className="h-4 w-4" />
-                  Launch Desktop Client
+                  <Terminal className="h-3.5 w-3.5 text-slate-400" />
+                  Desktop Client Simulator
                 </a>
-
-                <Link
-                  href="/models"
-                  className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/60 px-5 py-3.5 text-sm font-medium text-slate-300 hover:text-white hover:border-slate-700 transition-colors"
-                >
-                  Supported Models
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
 
-              {/* Highlights List */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 text-xs font-mono text-slate-400">
+              {/* Highlights */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 text-xs font-medium text-slate-400">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-cyan-400" />
-                  No Dongle Required
+                  <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0" />
+                  <span>No Dongle Required</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                  2026 Security Patches
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <span>2026 Security Patches</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-blue-400" />
-                  Instant Cloud Credits
+                  <CheckCircle2 className="h-4 w-4 text-blue-400 shrink-0" />
+                  <span>Instant Cloud Credits</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: High-Tech Tool Interface Mockup */}
+            {/* Right Column: High-End Tool UI Preview */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl border border-cyan-500/30 bg-[#0c1220] p-4 shadow-2xl shadow-cyan/10">
-                {/* Windows Styled Window Header */}
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-md bg-cyan-500">
+              <div className="relative rounded-2xl border border-slate-800 bg-[#0c1220]/90 backdrop-blur-xl p-5 shadow-2xl shadow-cyan-500/5">
+                {/* Window Header */}
+                <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
                       <Flame className="h-3.5 w-3.5 text-black" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-white">
-                      Phoenix Service Tool v1.8.5 [PRO]
+                    <span className="text-xs font-bold text-white tracking-wide">
+                      Phoenix Service Tool v1.8.5 Pro
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
                     <span className="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
-                    <span className="h-2.5 w-2.5 rounded-full bg-cyan-500"></span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
                   </div>
                 </div>
 
-                {/* Subheader: Connected Mode & COM Port */}
-                <div className="flex items-center justify-between rounded-lg bg-slate-900/80 px-3 py-2 text-xs font-mono mb-3 border border-slate-800">
-                  <div className="flex items-center gap-2">
-                    <span className="text-slate-400">PORT:</span>
-                    <span className="text-emerald-400 font-bold">COM14 (Samsung Mobile USB)</span>
+                {/* Connected Device Status Card */}
+                <div className="rounded-xl border border-slate-800 bg-slate-900/90 p-3 mb-3.5 flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-white">
+                      <span>Samsung Galaxy S24 Ultra (SM-S928B)</span>
+                    </div>
+                    <div className="text-[11px] font-mono text-slate-400">
+                      Port: <span className="text-emerald-400 font-semibold">COM14</span> • Baud: 115200
+                    </div>
                   </div>
-                  <div className="rounded bg-emerald-950 px-2 py-0.5 text-[10px] text-emerald-400 border border-emerald-800">
-                    MTP READY
-                  </div>
-                </div>
-
-                {/* Simulated Tool Tabs */}
-                <div className="flex gap-1.5 border-b border-slate-800 pb-2 mb-3 text-[11px] font-mono">
-                  <span className="rounded bg-cyan-950 px-2.5 py-1 text-cyan-300 border border-cyan-700 font-bold">
-                    SAMSUNG
+                  <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20">
+                    MTP Ready
                   </span>
-                  <span className="px-2.5 py-1 text-slate-400 hover:text-white">XIAOMI</span>
-                  <span className="px-2.5 py-1 text-slate-400 hover:text-white">MEDIATEK</span>
-                  <span className="px-2.5 py-1 text-slate-400 hover:text-white">QUALCOMM</span>
                 </div>
 
-                {/* Simulated Terminal Window */}
-                <div className="rounded-lg bg-black/90 p-3 font-mono text-[11px] space-y-1.5 text-slate-300 border border-slate-800/80">
-                  <div className="text-slate-500">[14:08:22] Initializing USB subsystem... OK</div>
-                  <div className="text-slate-400">[14:08:23] Device Detected: Samsung Galaxy A54 5G (SM-A546E)</div>
-                  <div className="text-cyan-400">[14:08:24] Mode: MTP Modem Mode (COM14)</div>
-                  <div className="text-amber-400">[14:08:25] Reading Knox & Security patch: 2026-08 (Vulnerable)</div>
-                  <div className="text-slate-400">[14:08:26] Checking Server Auth & Deducting 5 Credits...</div>
-                  <div className="text-emerald-400">[14:08:27] Authorization Token verified (AuthID: #910283)</div>
-                  <div className="text-cyan-300">[14:08:28] Injecting test AT-commands... BYPASSING FRP...</div>
-                  <div className="text-emerald-400 font-bold">
-                    [14:08:30] &gt;&gt;&gt; FRP REMOVED SUCCESSFULLY! REBOOTING PHONE...
+                {/* Tool Brand Selector */}
+                <div className="flex gap-1.5 border-b border-slate-800/80 pb-2 mb-3 text-xs">
+                  <span className="rounded-md bg-cyan-500/10 px-2.5 py-1 text-cyan-400 font-semibold border border-cyan-500/20">
+                    Samsung
+                  </span>
+                  <span className="px-2.5 py-1 text-slate-400">Xiaomi</span>
+                  <span className="px-2.5 py-1 text-slate-400">MediaTek</span>
+                  <span className="px-2.5 py-1 text-slate-400">Qualcomm</span>
+                </div>
+
+                {/* Execution Terminal */}
+                <div className="rounded-xl bg-[#060910] border border-slate-800/80 p-3.5 font-mono text-[11px] space-y-1.5 leading-relaxed text-slate-300">
+                  <div className="text-slate-500">[16:30:10] USB handshake verified on COM14</div>
+                  <div className="text-slate-300">[16:30:11] Device Model: Samsung Galaxy S24 Ultra (SM-S928B)</div>
+                  <div className="text-cyan-400">[16:30:12] Security Patch Level: 2026-08 (Vulnerable)</div>
+                  <div className="text-amber-400">[16:30:13] Cloud Server verified: 10 Credits reserved</div>
+                  <div className="text-slate-300">[16:30:14] Injecting AT-Command exploit sequence...</div>
+                  <div className="text-emerald-400 font-semibold">
+                    [16:30:16] &gt;&gt;&gt; FRP REMOVED SUCCESSFULLY. REBOOTING...
                   </div>
                 </div>
 
-                {/* Quick Simulation Trigger Link */}
+                {/* Footer status inside card */}
                 <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                  <span className="text-slate-400 font-mono text-[11px]">
-                    Live Server Balance: <strong className="text-amber-300">85 Credits</strong>
+                  <span className="text-slate-400 text-[11px]">
+                    Technician Wallet: <strong className="text-amber-300">85 Credits</strong>
                   </span>
-                  <a
-                    href="http://localhost:3001"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-mono text-cyan-400 hover:underline flex items-center gap-1 text-[11px]"
-                  >
-                    Open Full Tool &gt;
-                  </a>
+                  <Link href="/models" className="text-cyan-400 hover:text-cyan-300 text-[11px] font-medium flex items-center gap-1">
+                    Check Compatibility <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -198,103 +197,111 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* METRICS STATS BANNER */}
-      <section className="border-y border-border/80 bg-slate-950/60 py-10">
+      {/* 2. STATS BAR */}
+      <section className="border-y border-slate-800/80 bg-slate-900/30 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono">180+</div>
-              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Supported Models</p>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">180+</div>
+              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">Supported Models</p>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono">99.8%</div>
-              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Repair Success Rate</p>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">99.8%</div>
+              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">Repair Success Rate</p>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-mono">45,000+</div>
-              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Active Technicians</p>
+              <div className="text-3xl sm:text-4xl font-extrabold text-cyan-400">45,000+</div>
+              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">Active Technicians</p>
             </div>
             <div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono">0 sec</div>
-              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Instant Cloud Activation</p>
+              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400">Instant</div>
+              <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">Cloud Credit Topup</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CORE FEATURES GRID */}
+      {/* 3. CORE CAPABILITIES (BENTO GRID) */}
       <section id="features" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-16">
-          <h2 className="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase">
-            POWERFUL CAPABILITIES
+        <div className="text-center space-y-3 mb-14">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-400">
+            Core Capabilities
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Comprehensive Smartphone Hardware Servicing
           </h2>
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Engineered For Every Major Smartphone Chipset
-          </h3>
           <p className="text-slate-400 text-sm max-w-2xl mx-auto">
-            From emergency Qualcomm EDL 9008 Sahara handshakes to MediaTek BROM auth bypass and Samsung one-click MTP AT commands.
+            Deep-level servicing algorithms engineered for Qualcomm Snapdragon, MediaTek Dimensity, Exynos, and Unisoc platforms.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Samsung */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-950 text-blue-400 border border-blue-800 mb-4 group-hover:scale-105 transition-transform">
-              <Zap className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-4">
+                <Zap className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Samsung One-Click MTP FRP</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Remove Google FRP account locks across all modern Samsung Galaxy A, S, and Z series through standard MTP modem mode without opening the phone.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Samsung One-Click MTP FRP</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Bypass Google FRP verification on all modern Samsung Galaxy A, S, and Z series through standard MTP modem mode without opening the phone.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
               <li>• Android 9 through Android 14+</li>
-              <li>• Read Pit, CSC Changer & Reboot</li>
-              <li>• Odin Tar.md5 Firmware Flasher</li>
+              <li>• CSC Region Changer & Carrier Diagnostic</li>
+              <li>• Odin Tar.md5 Firmware Flashing</li>
             </ul>
           </div>
 
           {/* Card 2: Xiaomi */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-950 text-orange-400 border border-orange-800 mb-4 group-hover:scale-105 transition-transform">
-              <Cpu className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-4">
+                <Cpu className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Xiaomi HyperOS & Mi Cloud</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Specialized Sideload mode integration to reset lost Mi Cloud account locks, plus authorized Fastboot-to-EDL 9008 conversion routines.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Xiaomi HyperOS & Mi Cloud</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Specialized Sideload mode integration to reset lost Mi Account locks, plus authorized Fastboot to EDL conversion routines.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
-              <li>• Mi Assistant Sideload Wipe</li>
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
+              <li>• Mi Assistant Recovery Sideload Wipe</li>
               <li>• Fastboot-to-EDL 9008 Handshake</li>
               <li>• Bootloader Unlock Verification</li>
             </ul>
           </div>
 
           {/* Card 3: MediaTek */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800 mb-4 group-hover:scale-105 transition-transform">
-              <ShieldCheck className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">MediaTek BROM Auth Bypass</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Bypass hardware SLA/DA signature verification on Helio & Dimensity chipsets. Read and write RPMB partitions with zero risk.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">MediaTek BROM Auth Bypass</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Disable hardware SLA/DA signature verification on Helio & Dimensity chipsets. Read and write RPMB partitions with zero risk.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
               <li>• Scatter File Flashing Engine</li>
               <li>• Safe Format Userdata + FRP</li>
-              <li>• Read Preloader & Dump GPT</li>
+              <li>• Read Preloader & Dump GPT Partitions</li>
             </ul>
           </div>
 
           {/* Card 4: Qualcomm */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-950 text-purple-400 border border-purple-800 mb-4 group-hover:scale-105 transition-transform">
-              <Laptop className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-4">
+                <Laptop className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Qualcomm EDL 9008 Sahara</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Send raw Sahara protocol packets and load official Firehose programmers (ELF/MBN) for unbricking and GPT partition manipulation.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Qualcomm EDL 9008 Sahara</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Send raw Sahara protocol packets and load official Firehose programmers (ELF/MBN) for unbricking and GPT partition manipulation.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
               <li>• Auto Firehose Programmer Match</li>
               <li>• Erase FRP & Config Partitions</li>
               <li>• RawProgram XML Flashing</li>
@@ -302,15 +309,17 @@ export default function HomePage() {
           </div>
 
           {/* Card 5: Transsion & Nokia */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-950 text-cyan-400 border border-cyan-800 mb-4 group-hover:scale-105 transition-transform">
-              <Lock className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-4">
+                <Lock className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Transsion & Nokia/HMD</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Deep servicing for Tecno, Infinix, itel, and Nokia devices. One-click MDM reset, network diagnostics, and factory restore.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Transsion & Nokia/HMD</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Deep servicing for Tecno, Infinix, itel, and Nokia devices. One-click MDM reset, network diagnostics, and factory restore.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
               <li>• Tecno Camon & Infinix Note Series</li>
               <li>• Nokia NB0 / PAC Firmware Flasher</li>
               <li>• Fix Bootloop & IMEI Repair Check</li>
@@ -318,15 +327,17 @@ export default function HomePage() {
           </div>
 
           {/* Card 6: Anti-Tamper Cloud */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-cyan-500/50 transition-all hover:shadow-cyan group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-950 text-amber-400 border border-amber-800 mb-4 group-hover:scale-105 transition-transform">
-              <Coins className="h-6 w-6" />
+          <div className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">
+                <Coins className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Cloud Credits & HWID Security</h3>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                PC-bound licensing with hardware fingerprint protection. Automated credit deduction only upon verified operation completion.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Cloud Credits & HWID Security</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              PC-bound licensing with hardware fingerprint protection. Automated credit deduction only upon verified operation completion.
-            </p>
-            <ul className="text-xs font-mono text-slate-300 space-y-1.5">
+            <ul className="text-xs text-slate-300 space-y-1.5 border-t border-slate-800/80 pt-3">
               <li>• Instant Reseller Credit Transfer</li>
               <li>• DHRU Fusion & WebX GSM API</li>
               <li>• Transparent Audit Logs & Receipts</li>
@@ -335,39 +346,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* INTERACTIVE SUPPORTED MODELS SEARCH PREVIEW */}
+      {/* 4. INTERACTIVE SUPPORTED MODELS DATABASE EXPLORER */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-border bg-[#0a0f1d] p-6 sm:p-10 shadow-xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="glass-panel rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800/80 pb-6">
             <div>
-              <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
-                DATABASE EXPLORER
+              <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+                Database Explorer
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                Check Your Phone Model Support
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">
+                Check Phone Model & Chipset Compatibility
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Search over 180+ devices, chipsets, and required credit costs.
+                Real-time search across 180+ verified models, chipsets, and required credit costs.
               </p>
             </div>
             <Link
               href="/models"
-              className="text-xs font-mono font-bold text-cyan-400 hover:underline flex items-center gap-1.5"
+              className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5"
             >
-              View Full Matrix ({models.length} Models) <ArrowRight className="h-3.5 w-3.5" />
+              View Full Database ({models.length} Models) <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
           {/* Search Bar & Brand Filters */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+              <Search className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search model (e.g., Galaxy S24, Redmi Note 13, Dimensity, SM-A546)..."
+                placeholder="Search phone model, code, or chipset (e.g. Dimensity 7200, S24, SM-A546, Garnet)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-border bg-slate-900/80 py-2.5 pl-10 pr-4 text-xs font-mono text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                className="w-full rounded-xl border border-slate-700 bg-slate-900/90 py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
               />
             </div>
 
@@ -377,9 +388,9 @@ export default function HomePage() {
                 <button
                   key={b}
                   onClick={() => setSelectedBrand(b)}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-mono font-bold transition-colors ${
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
                     selectedBrand === b
-                      ? "bg-cyan-500 text-black shadow-cyan"
+                      ? "bg-cyan-500 text-black shadow-sm"
                       : "bg-slate-900 text-slate-400 border border-slate-800 hover:text-white"
                   }`}
                 >
@@ -389,146 +400,170 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Models Table Preview */}
-          <div className="overflow-x-auto rounded-xl border border-slate-800">
+          {/* Models Table */}
+          <div className="overflow-x-auto rounded-xl border border-slate-800/80 bg-slate-950/60">
             <table className="w-full text-left text-xs">
-              <thead className="bg-slate-900/90 text-[11px] font-mono uppercase text-slate-400 border-b border-slate-800">
+              <thead className="bg-slate-900/80 text-[11px] uppercase text-slate-400 border-b border-slate-800 font-semibold tracking-wider">
                 <tr>
                   <th className="py-3 px-4">Brand & Model</th>
                   <th className="py-3 px-4">Model Code</th>
                   <th className="py-3 px-4">Chipset</th>
                   <th className="py-3 px-4">Supported Modes</th>
                   <th className="py-3 px-4">Available Functions</th>
-                  <th className="py-3 px-4 text-right">Credits</th>
+                  <th className="py-3 px-4 text-right">Cost</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 font-mono text-slate-300">
-                {filteredModels.slice(0, 5).map((device) => (
-                  <tr key={device.id} className="hover:bg-slate-900/50 transition-colors">
-                    <td className="py-3 px-4 font-bold text-white flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                      {device.brand} {device.modelName}
-                    </td>
-                    <td className="py-3 px-4 text-cyan-300">{device.modelCode}</td>
-                    <td className="py-3 px-4 text-slate-400">{device.chipset}</td>
-                    <td className="py-3 px-4">
-                      <span className="rounded bg-slate-800 px-2 py-0.5 text-[10px] text-slate-300">
-                        {device.supportedModes}
-                      </span>
-                    </td>
-                    <td className="py-3 px-4 text-[11px] text-slate-300">{device.features}</td>
-                    <td className="py-3 px-4 text-right font-bold text-amber-400">
-                      {device.creditCost} CR
+              <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                {filteredModels.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="py-8 text-center text-slate-400">
+                      No models matching &ldquo;{searchQuery}&rdquo;. Try another chipset or brand.
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  filteredModels.slice(0, 6).map((device) => (
+                    <tr key={device.id} className="hover:bg-slate-900/50 transition-colors">
+                      <td className="py-3 px-4 font-semibold text-white flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                        {device.brand} {device.modelName}
+                      </td>
+                      <td className="py-3 px-4 text-cyan-300 font-mono text-[11px]">{device.modelCode}</td>
+                      <td className="py-3 px-4 text-slate-400">{device.chipset}</td>
+                      <td className="py-3 px-4">
+                        <span className="rounded bg-slate-800 px-2 py-0.5 text-[10px] text-slate-200">
+                          {device.supportedModes}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-[11px] text-slate-300">{device.features}</td>
+                      <td className="py-3 px-4 text-right font-bold text-amber-400 font-mono">
+                        {device.creditCost} CR
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
         </div>
       </section>
 
-      {/* PRICING & CREDIT PACKAGES */}
+      {/* 5. PRICING & CREDIT PACKS */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-3 mb-16">
-          <h2 className="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase">
-            FLEXIBLE LICENSING
-          </h2>
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
+        <div className="text-center space-y-3 mb-14">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-400">
+            Transparent Pricing
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Pay Only For What You Repair
-          </h3>
+          </h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            No expensive yearly subscriptions or dongle activations. Purchase credits from authorized global distributors.
+            No expensive yearly subscriptions or dongle activations. Purchase credits as needed from authorized global distributors.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Pack 1 */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0b1120] p-6 hover:border-slate-700 transition-colors">
-            <h4 className="text-sm font-mono text-slate-400 uppercase">Starter Pack</h4>
-            <div className="my-4">
-              <span className="text-3xl font-black text-white font-mono">10</span>
-              <span className="text-xs text-slate-400 ml-1">Credits</span>
-              <div className="text-xl font-bold text-cyan-400 mt-1">$10.00</div>
+          <div className="glass-panel rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Starter Pack</h4>
+              <div className="my-3">
+                <span className="text-3xl font-extrabold text-white">10</span>
+                <span className="text-xs text-slate-400 ml-1">Credits</span>
+                <div className="text-lg font-bold text-cyan-400 mt-0.5">$10.00</div>
+              </div>
+              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                Ideal for individual technicians and occasional repairs.
+              </p>
+              <ul className="text-xs space-y-2 text-slate-300 mb-6">
+                <li>✓ 2x Samsung FRP Resets</li>
+                <li>✓ Instant Account Activation</li>
+                <li>✓ 24/7 Cloud Server Access</li>
+              </ul>
             </div>
-            <p className="text-xs text-slate-400 mb-6">Ideal for occasional servicing & individual repairs.</p>
-            <ul className="text-xs space-y-2 text-slate-300 mb-6 font-mono">
-              <li>✓ 2x Samsung FRP Resets</li>
-              <li>✓ Instant Account Activation</li>
-              <li>✓ 24/7 Server Access</li>
-            </ul>
             <Link
               href="/resellers"
-              className="block text-center rounded-xl border border-slate-700 bg-slate-900 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors"
+              className="block text-center rounded-xl border border-slate-700 bg-slate-800/80 py-2.5 text-xs font-semibold text-white hover:bg-slate-700 transition-colors"
             >
               Buy from Reseller
             </Link>
           </div>
 
           {/* Pack 2: Popular */}
-          <div className="rounded-2xl border-2 border-cyan-500 bg-[#0c1427] p-6 shadow-cyan relative">
+          <div className="glass-panel rounded-2xl p-6 border-cyan-500/40 relative flex flex-col justify-between shadow-lg shadow-cyan-500/5">
             <div className="absolute -top-3 right-6 rounded-full bg-cyan-400 px-3 py-0.5 text-[10px] font-bold text-black uppercase tracking-wider">
-              Most Popular
+              Popular
             </div>
-            <h4 className="text-sm font-mono text-cyan-400 uppercase">Technician Pack</h4>
-            <div className="my-4">
-              <span className="text-3xl font-black text-white font-mono">50</span>
-              <span className="text-xs text-slate-400 ml-1">Credits</span>
-              <div className="text-xl font-bold text-cyan-400 mt-1">$45.00</div>
+            <div>
+              <h4 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider">Technician Pack</h4>
+              <div className="my-3">
+                <span className="text-3xl font-extrabold text-white">50</span>
+                <span className="text-xs text-slate-400 ml-1">Credits</span>
+                <div className="text-lg font-bold text-cyan-400 mt-0.5">$45.00</div>
+              </div>
+              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                Perfect for active mobile repair shops and servicing desks.
+              </p>
+              <ul className="text-xs space-y-2 text-slate-300 mb-6">
+                <li>✓ 10x Samsung / MTK Unlocks</li>
+                <li>✓ 5x Xiaomi Mi Cloud Sideloads</li>
+                <li>✓ Priority Cloud Server Queue</li>
+              </ul>
             </div>
-            <p className="text-xs text-slate-400 mb-6">Perfect for active mobile repair shops and technicians.</p>
-            <ul className="text-xs space-y-2 text-slate-300 mb-6 font-mono">
-              <li>✓ 10x Samsung / MTK Unlocks</li>
-              <li>✓ 5x Xiaomi Mi Cloud Sideloads</li>
-              <li>✓ Priority Server Auth Queue</li>
-            </ul>
             <Link
               href="/resellers"
-              className="block text-center rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 py-2.5 text-xs font-bold text-black shadow-cyan hover:opacity-95 transition-opacity"
+              className="block text-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-2.5 text-xs font-semibold text-black hover:opacity-95 transition-opacity"
             >
               Buy from Reseller
             </Link>
           </div>
 
           {/* Pack 3 */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0b1120] p-6 hover:border-slate-700 transition-colors">
-            <h4 className="text-sm font-mono text-slate-400 uppercase">Pro Workshop</h4>
-            <div className="my-4">
-              <span className="text-3xl font-black text-white font-mono">100</span>
-              <span className="text-xs text-slate-400 ml-1">Credits</span>
-              <div className="text-xl font-bold text-cyan-400 mt-1">$85.00</div>
+          <div className="glass-panel rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Workshop Pro</h4>
+              <div className="my-3">
+                <span className="text-3xl font-extrabold text-white">100</span>
+                <span className="text-xs text-slate-400 ml-1">Credits</span>
+                <div className="text-lg font-bold text-cyan-400 mt-0.5">$85.00</div>
+              </div>
+              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                Designed for high-volume servicing centers and chains.
+              </p>
+              <ul className="text-xs space-y-2 text-slate-300 mb-6">
+                <li>✓ Full Unrestricted Operations</li>
+                <li>✓ HWID Reset Permitted</li>
+                <li>✓ Direct Telegram Support</li>
+              </ul>
             </div>
-            <p className="text-xs text-slate-400 mb-6">Designed for high-volume service centers.</p>
-            <ul className="text-xs space-y-2 text-slate-300 mb-6 font-mono">
-              <li>✓ Full Unrestricted Operations</li>
-              <li>✓ HWID Reset Support</li>
-              <li>✓ Direct Telegram Tech Support</li>
-            </ul>
             <Link
               href="/resellers"
-              className="block text-center rounded-xl border border-slate-700 bg-slate-900 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors"
+              className="block text-center rounded-xl border border-slate-700 bg-slate-800/80 py-2.5 text-xs font-semibold text-white hover:bg-slate-700 transition-colors"
             >
               Buy from Reseller
             </Link>
           </div>
 
-          {/* Pack 4: Reseller */}
-          <div className="rounded-2xl border border-border bg-[#0b1120] p-6 hover:border-slate-700 transition-colors">
-            <h4 className="text-sm font-mono text-purple-400 uppercase">Reseller Bulk</h4>
-            <div className="my-4">
-              <span className="text-3xl font-black text-white font-mono">500+</span>
-              <span className="text-xs text-slate-400 ml-1">Credits</span>
-              <div className="text-xl font-bold text-purple-400 mt-1">Wholesale</div>
+          {/* Pack 4 */}
+          <div className="glass-panel rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <h4 className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Reseller Bulk</h4>
+              <div className="my-3">
+                <span className="text-3xl font-extrabold text-white">500+</span>
+                <span className="text-xs text-slate-400 ml-1">Credits</span>
+                <div className="text-lg font-bold text-purple-400 mt-0.5">Wholesale</div>
+              </div>
+              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                Wholesale rates for GSM server distributors and portals.
+              </p>
+              <ul className="text-xs space-y-2 text-slate-300 mb-6">
+                <li>✓ DHRU Fusion GSM API Key</li>
+                <li>✓ Sub-User Instant Transfers</li>
+                <li>✓ Listed in Official Reseller Hub</li>
+              </ul>
             </div>
-            <p className="text-xs text-slate-400 mb-6">Wholesale rates for GSM server distributors and portals.</p>
-            <ul className="text-xs space-y-2 text-slate-300 mb-6 font-mono">
-              <li>✓ DHRU Fusion GSM API Key</li>
-              <li>✓ Sub-User Instant Transfers</li>
-              <li>✓ Listed in Official Reseller Hub</li>
-            </ul>
             <Link
               href="/resellers"
-              className="block text-center rounded-xl border border-purple-800 bg-purple-950/60 py-2.5 text-xs font-bold text-purple-300 hover:bg-purple-900 transition-colors"
+              className="block text-center rounded-xl border border-purple-500/30 bg-purple-950/40 py-2.5 text-xs font-semibold text-purple-300 hover:bg-purple-900/50 transition-colors"
             >
               Apply as Reseller
             </Link>
@@ -536,14 +571,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DOWNLOAD CTA BANNER */}
+      {/* 6. BOTTOM DOWNLOAD CTA BANNER */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-cyan-500/40 bg-gradient-to-r from-cyan-950/40 via-blue-950/40 to-slate-950 p-8 sm:p-12 text-center space-y-6 shadow-cyan">
-          <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400 text-black shadow-cyan">
-            <Flame className="h-8 w-8 animate-pulse" />
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 text-center space-y-5 border-cyan-500/20 shadow-xl shadow-cyan-500/5">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400 text-black shadow-md shadow-cyan-400/20">
+            <Flame className="h-6 w-6" />
           </div>
 
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Ready to Service Android Devices in Minutes?
           </h3>
 
@@ -551,28 +586,24 @@ export default function HomePage() {
             Download Phoenix Service Tool Setup v1.8.5, install the signed USB drivers, and connect your phone.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <div className="flex flex-wrap justify-center gap-3.5 pt-2">
             <a
               href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
               download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
-              className="flex items-center gap-2 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-black hover:bg-cyan-300 transition-colors shadow-cyan"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3.5 text-sm font-semibold text-black hover:opacity-95 transition-opacity"
             >
               <Download className="h-4 w-4" />
               Download Official Installer (.exe)
             </a>
-            <a
-              href="http://localhost:3001"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-border bg-slate-900 px-6 py-3.5 text-sm font-mono font-bold text-cyan-300 hover:bg-slate-800 transition-colors"
+            <Link
+              href="/downloads#drivers"
+              className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:text-white transition-colors"
             >
-              <Terminal className="h-4 w-4" />
-              Open Desktop Client Simulator
-            </a>
+              USB Drivers Package
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
 }
-

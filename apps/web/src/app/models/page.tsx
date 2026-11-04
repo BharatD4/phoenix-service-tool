@@ -59,7 +59,7 @@ export default function ModelsPage() {
       </div>
 
       {/* Filter and Search Controls */}
-      <div className="rounded-2xl border border-border bg-[#0b1120] p-5 space-y-4 shadow-xl">
+      <div className="glass-panel rounded-2xl p-6 space-y-4 shadow-xl">
         <div className="relative">
           <Search className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
           <input
@@ -67,13 +67,13 @@ export default function ModelsPage() {
             placeholder="Type any model name, model code, or chipset (e.g. S24, Dimensity 7200, SM-A546, Garnet)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-xl border border-border bg-slate-900/90 py-3 pl-10 pr-4 text-sm font-mono text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+            className="w-full rounded-xl border border-slate-700 bg-slate-900/90 py-3 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
           />
         </div>
 
         {/* Brand Filters */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 pt-2 border-t border-slate-800/80">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1 min-w-[70px]">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1 min-w-[70px]">
             <Filter className="h-3 w-3" /> Brand:
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -81,9 +81,9 @@ export default function ModelsPage() {
               <button
                 key={b}
                 onClick={() => setSelectedBrand(b)}
-                className={`rounded-lg px-3 py-1 text-xs font-mono font-bold transition-all ${
+                className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
                   selectedBrand === b
-                    ? "bg-cyan-500 text-black shadow-cyan"
+                    ? "bg-cyan-500 text-black shadow-sm"
                     : "bg-slate-900 text-slate-400 border border-slate-800 hover:text-white"
                 }`}
               >
@@ -95,7 +95,7 @@ export default function ModelsPage() {
 
         {/* Mode Filters */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 pt-2 border-t border-slate-800/80">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1 min-w-[70px]">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1 min-w-[70px]">
             <Cpu className="h-3 w-3" /> Mode:
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -103,7 +103,7 @@ export default function ModelsPage() {
               <button
                 key={m}
                 onClick={() => setSelectedMode(m)}
-                className={`rounded-lg px-2.5 py-1 text-xs font-mono font-medium transition-all ${
+                className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-all ${
                   selectedMode === m
                     ? "bg-blue-600 text-white"
                     : "bg-slate-900 text-slate-400 border border-slate-800 hover:text-white"
@@ -117,9 +117,9 @@ export default function ModelsPage() {
       </div>
 
       {/* Models Table */}
-      <div className="overflow-x-auto rounded-2xl border border-border bg-[#0b1120] shadow-xl">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800/80 bg-slate-950/60 shadow-xl">
         <table className="w-full text-left text-xs">
-          <thead className="bg-[#0e1628] text-[11px] font-mono uppercase text-slate-400 border-b border-border">
+          <thead className="bg-slate-900/80 text-[11px] uppercase text-slate-400 border-b border-slate-800 font-semibold tracking-wider">
             <tr>
               <th className="py-3.5 px-4">Brand & Model</th>
               <th className="py-3.5 px-4">Model Code / Hardware</th>
@@ -130,14 +130,8 @@ export default function ModelsPage() {
               <th className="py-3.5 px-4 text-center">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border/60 font-mono text-slate-300">
-            {loading ? (
-              <tr>
-                <td colSpan={7} className="py-12 text-center text-slate-400">
-                  Loading supported models database...
-                </td>
-              </tr>
-            ) : filtered.length === 0 ? (
+          <tbody className="divide-y divide-slate-800/50 text-slate-300">
+            {filtered.length === 0 ? (
               <tr>
                 <td colSpan={7} className="py-12 text-center text-slate-400">
                   No matching models found. Try clearing your search query.
@@ -145,19 +139,19 @@ export default function ModelsPage() {
               </tr>
             ) : (
               filtered.map((device) => (
-                <tr key={device.id} className="hover:bg-slate-900/60 transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-white flex items-center gap-2">
+                <tr key={device.id} className="hover:bg-slate-900/50 transition-colors">
+                  <td className="py-3.5 px-4 font-semibold text-white flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-cyan-400"></span>
                     {device.brand} {device.modelName}
                   </td>
-                  <td className="py-3.5 px-4 text-cyan-300 font-semibold">{device.modelCode}</td>
+                  <td className="py-3.5 px-4 text-cyan-300 font-mono text-[11px] font-medium">{device.modelCode}</td>
                   <td className="py-3.5 px-4 text-slate-400">{device.chipset}</td>
                   <td className="py-3.5 px-4">
                     <div className="flex flex-wrap gap-1">
                       {device.supportedModes.split(",").map((mode: string, idx: number) => (
                         <span
                           key={idx}
-                          className="rounded bg-slate-800 px-2 py-0.5 text-[10px] text-slate-200 border border-slate-700"
+                          className="rounded bg-slate-800 px-2 py-0.5 text-[10px] text-slate-200"
                         >
                           {mode.trim()}
                         </span>
@@ -167,11 +161,11 @@ export default function ModelsPage() {
                   <td className="py-3.5 px-4 text-[11px] text-slate-300 max-w-xs leading-relaxed">
                     {device.features}
                   </td>
-                  <td className="py-3.5 px-4 font-bold text-amber-400">
+                  <td className="py-3.5 px-4 font-bold text-amber-400 font-mono">
                     {device.creditCost} Credits
                   </td>
                   <td className="py-3.5 px-4 text-center">
-                    <span className="rounded-full bg-emerald-950/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-800">
+                    <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20">
                       {device.status}
                     </span>
                   </td>
