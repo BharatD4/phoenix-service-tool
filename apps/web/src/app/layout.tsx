@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import CursorEffect from "@/components/CursorEffect";
 
 export const metadata: Metadata = {
   title: "Phoenix Service Tool - Professional Mobile Servicing & Software Repair Hub",
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col ambient-glow antialiased">
+        <CursorEffect />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

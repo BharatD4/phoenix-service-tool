@@ -53,144 +53,150 @@ export default function HomePage() {
 
   return (
     <div className="space-y-24 pb-24">
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-12 md:pt-20">
+      {/* 1. HERO SECTION (Aligned with Phoenix Service Tool Official Showcase) */}
+      <section className="relative pt-8 md:pt-16 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Headlines & Call to Actions */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              {/* Announcement Pill */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3.5 py-1 text-xs font-medium text-cyan-400">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Phoenix Service Tool v1.8.5 — 2026 Patch Ready</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Headlines & Action Buttons */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              {/* Version Pill */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1 text-xs font-medium text-slate-200 backdrop-blur-md">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Version 10.0.6.0</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-                Professional Mobile Servicing &{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
-                  Software Repair Hub
-                </span>
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
+                Phoenix Service<br />
+                Tool
               </h1>
 
               {/* Description */}
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                The modern Windows servicing utility for professional mobile technicians. Instant Samsung MTP FRP bypass, Xiaomi HyperOS Sideload, Qualcomm EDL 9008 Sahara auth, and MediaTek BROM repair with no dongle required.
+              <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
+                A Professional Grade Mobile Servicing Platform Supporting Samsung, Xiaomi, HMD/Nokia, Huawei, Vivo, Transsion, and Realme devices. Flash firmware, unlock bootloaders, Reset FRP, Reset accounts, and diagnose device information all from a single powerful tool.
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-3.5 pt-2">
+              {/* Action Buttons: Download Tool (White) & Telegram (Glass) */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <a
                   href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
                   download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
-                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/20 hover:opacity-95 transition-all transform hover:-translate-y-0.5"
+                  className="flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-purple-500/10 hover:bg-slate-100 transition-all transform hover:-translate-y-0.5"
                 >
                   <Download className="h-4 w-4" />
-                  Download Tool v1.8.5 (.exe)
+                  Download Tool
+                </a>
+
+                <a
+                  href="https://t.me/phoenixservicetool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.08] hover:bg-white/[0.14] px-6 py-3.5 text-sm font-semibold text-white transition-all backdrop-blur-md"
+                >
+                  <svg className="h-4 w-4 fill-current text-white" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+                  </svg>
+                  Telegram
                 </a>
 
                 <Link
-                  href="/models"
-                  className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-5 py-3.5 text-sm font-semibold text-slate-200 hover:text-white hover:border-slate-600 transition-colors"
-                >
-                  Supported Models
-                  <ArrowRight className="h-4 w-4 text-cyan-400" />
-                </Link>
-
-                <Link
                   href="/tool"
-                  className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all"
+                  className="flex items-center gap-2 rounded-xl border border-white/10 bg-purple-950/40 hover:bg-purple-900/50 px-4 py-3.5 text-xs font-semibold text-purple-200 transition-all"
                 >
-                  <Terminal className="h-4 w-4 text-cyan-400" />
-                  Live Software Simulator
+                  <Terminal className="h-4 w-4 text-purple-400" />
+                  Live Web Tool
                 </Link>
               </div>
+            </div>
 
-              {/* Highlights */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 text-xs font-medium text-slate-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0" />
-                  <span>No Dongle Required</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <span>2026 Security Patches</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-blue-400 shrink-0" />
-                  <span>Instant Cloud Credits</span>
+            {/* Right Column: 3D Floating Perspective Tool Showcase (Matching Image) */}
+            <div className="lg:col-span-6 relative">
+              {/* Fiery ambient aura glow behind the showcase */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-amber-600/25 via-rose-600/30 to-purple-600/30 rounded-3xl blur-2xl pointer-events-none" />
+
+              <div className="relative rounded-2xl border border-white/15 bg-[#120a2e]/90 p-4 sm:p-6 shadow-2xl backdrop-blur-xl overflow-hidden">
+                {/* 3D Tilted Card Preview */}
+                <div className="space-y-4">
+                  {/* Top Bar with USB & Brand Pills */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-rose-500 to-indigo-600 flex items-center justify-center">
+                        <Flame className="w-3.5 h-3.5 text-white" />
+                      </div>
+                      <span className="text-xs font-bold text-white">Phoenix Service Tool [ v10.0.6.0 ]</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[10px]">
+                      <span className="rounded bg-white/10 px-2 py-0.5 text-emerald-400 font-semibold border border-emerald-500/20">● Online</span>
+                      <span className="rounded bg-white/10 px-2 py-0.5 text-slate-300">COM14 (9008)</span>
+                    </div>
+                  </div>
+
+                  {/* Brand Pills */}
+                  <div className="flex flex-wrap gap-1.5 text-[11px] font-bold">
+                    {["SAMSUNG", "XIAOMI", "OPLUS", "HMD", "HONOR", "TRANSSION"].map((b) => (
+                      <span
+                        key={b}
+                        className={`px-2.5 py-1 rounded-md border ${
+                          b === "XIAOMI"
+                            ? "bg-purple-600/40 text-purple-200 border-purple-400"
+                            : "bg-white/[0.04] text-slate-300 border-white/10"
+                        }`}
+                      >
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Split Preview Grid (Left: Terminal Logs, Right: Operations) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    {/* Left: Terminal Output */}
+                    <div className="rounded-xl bg-[#0a051c] border border-white/10 p-3 font-mono text-[10px] text-slate-300 space-y-1">
+                      <div className="text-emerald-400 font-bold pb-1 border-b border-white/5">
+                        FUNCTION : XIAOMI BOOTLOADER UNLOCK
+                      </div>
+                      <div className="text-slate-400">Loading User Information... <span className="text-emerald-400">OK</span></div>
+                      <div>Username : <span className="text-purple-300 font-semibold">SHRESHTHMOBILE</span></div>
+                      <div>Credit : <span className="text-amber-300 font-semibold">5.48</span></div>
+                      <div className="text-slate-400 pt-1">Loading Server Auth... <span className="text-emerald-400">OK</span></div>
+                      <div className="text-amber-400/90 text-[9px] pt-1">
+                        XIAOMI MTK V5 AUTH: <span className="text-emerald-400 font-bold">ONLINE</span> (5 CR)
+                      </div>
+                      <div className="text-amber-400/90 text-[9px]">
+                        XIAOMI ASSISTANT FRP: <span className="text-emerald-400 font-bold">ONLINE</span> (3 CR)
+                      </div>
+                    </div>
+
+                    {/* Right: Actions */}
+                    <div className="space-y-2 flex flex-col justify-between">
+                      <div className="rounded-lg bg-white/[0.03] border border-white/10 p-2 text-[11px]">
+                        <span className="text-purple-300 font-bold block mb-1">Model:</span>
+                        <div className="text-white text-xs font-semibold">Xiaomi Redmi Note 13 Pro 5G</div>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <div className="rounded-lg border border-purple-500/40 bg-purple-950/30 p-2 text-center text-xs font-bold text-white flex items-center justify-center gap-1.5 shadow-sm">
+                          <span>ℹ</span> Read Info [ Fastboot Mode ]
+                        </div>
+                        <div className="rounded-lg border border-purple-500/40 bg-purple-950/30 p-2 text-center text-xs font-bold text-white flex items-center justify-center gap-1.5 shadow-sm">
+                          <span>🔄</span> Fastboot To EDL
+                        </div>
+                        <div className="rounded-lg border border-purple-500/40 bg-purple-950/30 p-2 text-center text-xs font-bold text-white flex items-center justify-center gap-1.5 shadow-sm">
+                          <span>🔒</span> Bootloader Unlock [ Fastboot ]
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Bar inside Preview */}
+                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300 font-semibold">
+                    <span className="text-purple-300">Progress: 100%</span>
+                    <span className="text-slate-400">Security: <strong className="text-emerald-400 font-bold">WHQL Verified</strong></span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: High-End Tool UI Preview */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl border border-slate-800 bg-[#0c1220]/90 backdrop-blur-xl p-5 shadow-2xl shadow-cyan-500/5">
-                {/* Window Header */}
-                <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
-                      <Flame className="h-3.5 w-3.5 text-black" />
-                    </div>
-                    <span className="text-xs font-bold text-white tracking-wide">
-                      Phoenix Service Tool v1.8.5 Pro
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
-                    <span className="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
-                    <span className="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
-                  </div>
-                </div>
-
-                {/* Connected Device Status Card */}
-                <div className="rounded-xl border border-slate-800 bg-slate-900/90 p-3 mb-3.5 flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-white">
-                      <span>Samsung Galaxy S24 Ultra (SM-S928B)</span>
-                    </div>
-                    <div className="text-[11px] font-mono text-slate-400">
-                      Port: <span className="text-emerald-400 font-semibold">COM14</span> • Baud: 115200
-                    </div>
-                  </div>
-                  <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20">
-                    MTP Ready
-                  </span>
-                </div>
-
-                {/* Tool Brand Selector */}
-                <div className="flex gap-1.5 border-b border-slate-800/80 pb-2 mb-3 text-xs">
-                  <span className="rounded-md bg-cyan-500/10 px-2.5 py-1 text-cyan-400 font-semibold border border-cyan-500/20">
-                    Samsung
-                  </span>
-                  <span className="px-2.5 py-1 text-slate-400">Xiaomi</span>
-                  <span className="px-2.5 py-1 text-slate-400">MediaTek</span>
-                  <span className="px-2.5 py-1 text-slate-400">Qualcomm</span>
-                </div>
-
-                {/* Execution Terminal */}
-                <div className="rounded-xl bg-[#060910] border border-slate-800/80 p-3.5 font-mono text-[11px] space-y-1.5 leading-relaxed text-slate-300">
-                  <div className="text-slate-500">[16:30:10] USB handshake verified on COM14</div>
-                  <div className="text-slate-300">[16:30:11] Device Model: Samsung Galaxy S24 Ultra (SM-S928B)</div>
-                  <div className="text-cyan-400">[16:30:12] Security Patch Level: 2026-08 (Vulnerable)</div>
-                  <div className="text-amber-400">[16:30:13] Cloud Server verified: 10 Credits reserved</div>
-                  <div className="text-slate-300">[16:30:14] Injecting AT-Command exploit sequence...</div>
-                  <div className="text-emerald-400 font-semibold">
-                    [16:30:16] &gt;&gt;&gt; FRP REMOVED SUCCESSFULLY. REBOOTING...
-                  </div>
-                </div>
-
-                {/* Footer status inside card */}
-                <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                  <span className="text-slate-400 text-[11px]">
-                    Technician Wallet: <strong className="text-amber-300">85 Credits</strong>
-                  </span>
-                  <Link href="/models" className="text-cyan-400 hover:text-cyan-300 text-[11px] font-medium flex items-center gap-1">
-                    Check Compatibility <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

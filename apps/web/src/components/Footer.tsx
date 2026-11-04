@@ -3,14 +3,16 @@ import { Flame, Send, MessageSquare } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800/80 bg-[#070b13] text-slate-400 py-12">
+    <footer className="border-t border-white/10 bg-[#090518] text-slate-400 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
           <div className="space-y-3.5">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600">
-                <Flame className="h-4 w-4 text-black" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-rose-500 via-purple-500 to-indigo-500 p-0.5">
+                <div className="flex h-full w-full items-center justify-center rounded-full bg-[#12082b]">
+                  <Flame className="h-4 w-4 text-rose-400" />
+                </div>
               </div>
               <span className="font-bold tracking-tight text-white text-base">
                 PHOENIX SERVICE TOOL

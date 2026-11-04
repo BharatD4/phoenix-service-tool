@@ -30,34 +30,28 @@ export function Navbar() {
   }, [pathname]);
 
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "Features", href: "/#features" },
+    { name: "Server Status", href: "/#status" },
+    { name: "Resellers", href: "/resellers" },
     { name: "Supported Models", href: "/models" },
-    { name: "Downloads & Drivers", href: "/downloads" },
-    { name: "Official Resellers", href: "/resellers" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#090d16]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#0d0824]/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-md shadow-cyan-500/20 transition-transform group-hover:scale-105">
-            <Flame className="h-5 w-5 text-black" />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-bold tracking-tight text-white text-base group-hover:text-cyan-400 transition-colors">
-                PHOENIX
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-cyan-500/10 px-2 py-0.5 text-[10px] font-medium text-cyan-400 border border-cyan-500/20">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                v1.8.5
-              </span>
+        {/* Brand Logo matching Phoenix Image */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-rose-500 via-purple-500 to-indigo-500 p-0.5 shadow-md shadow-purple-500/25 transition-transform group-hover:scale-105">
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-[#12082b]">
+              <Flame className="h-4 w-4 text-rose-400" />
             </div>
-            <span className="text-[10px] font-medium text-slate-400 tracking-wide uppercase">
-              Service Tool & Repair Hub
-            </span>
           </div>
+          <span className="font-bold tracking-tight text-white text-lg group-hover:text-purple-300 transition-colors">
+            Phoenix
+          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -68,10 +62,10 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`rounded-lg px-3.5 py-1.5 text-xs font-medium transition-all ${
+                className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
                   isActive
-                    ? "text-cyan-400 bg-cyan-500/10"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                    ? "text-white bg-white/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -82,51 +76,41 @@ export function Navbar() {
 
         {/* Right CTA / Auth Status */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Quick link to download setup */}
-          <a
-            href="/downloads/Phoenix_Service_Tool_Setup_v1.8.5.exe"
-            download="Phoenix_Service_Tool_Setup_v1.8.5.exe"
-            className="flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs font-semibold text-slate-200 hover:border-slate-600 hover:bg-slate-800 transition-colors"
-          >
-            <Download className="h-3.5 w-3.5 text-cyan-400" />
-            Download Tool
-          </a>
-
           {user ? (
             <div className="flex items-center gap-2">
               <Link
                 href="/dashboard"
-                className="flex items-center gap-2 rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-slate-200 hover:border-cyan-500/50 transition-colors"
+                className="flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3.5 py-1.5 text-xs text-white hover:bg-white/20 transition-all"
               >
                 <Coins className="h-3.5 w-3.5 text-amber-400" />
                 <span className="font-semibold text-amber-300">{user.credits} CR</span>
-                <span className="text-slate-600">|</span>
-                <span className="text-slate-300 font-medium">{user.username}</span>
+                <span className="text-white/30">|</span>
+                <span className="font-medium text-white">{user.username}</span>
               </Link>
 
               {user.role === "ADMIN" && (
                 <Link
                   href="/admin"
-                  className="rounded-lg bg-red-950/60 border border-red-800/80 px-2.5 py-1.5 text-xs font-semibold text-red-300 hover:bg-red-900/60"
+                  className="rounded-full bg-rose-500/20 border border-rose-500/30 px-3 py-1 text-xs font-semibold text-rose-300 hover:bg-rose-500/30"
                 >
                   Admin
                 </Link>
               )}
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <Link
                 href="/login"
-                className="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
               >
                 Sign In
               </Link>
               <Link
                 href="/register"
-                className="flex items-center gap-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-3.5 py-1.5 text-xs font-semibold text-black hover:opacity-95 transition-opacity shadow-sm shadow-cyan-500/20"
+                className="flex items-center gap-1.5 rounded-full bg-white text-slate-900 px-4 py-2 text-xs font-bold hover:bg-slate-100 transition-all shadow-md shadow-purple-500/10"
               >
-                Get Started
-                <ChevronRight className="h-3 w-3" />
+                Register
+                <ChevronRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           )}
