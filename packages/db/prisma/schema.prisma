@@ -1,0 +1,114 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  email           String   @unique
+  passwordHash    String
+  role            String   @default("TECHNICIAN") // TECHNICIAN, RESELLER, ADMIN
+  credits         Int      @default(25)
+  hwid            String?
+  hwidLastReset   DateTime?
+  status          String   @default("ACTIVE") // ACTIVE, SUSPENDED, BANNED
+  apiKey          String   @unique
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  operations       DeviceOperation[]
+  transactions     CreditTransaction[]
+  resellerTransfers ResellerTransfer[]
+}
+
+model DeviceOperation {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  brand           String   // Samsung, Xiaomi, Vivo, Transsion, Nokia, Qualcomm, MediaTek
+  model           String   // e.g. "Samsung Galaxy S24 (SM-S921B)"
+  action          String   // e.g. "SAMSUNG_FRP_MTP", "XIAOMI_MI_ACCOUNT", "MTK_BROM_BYPASS", "EDL_9008_FLASH"
+  chipset         String?  // Qualcomm Snapdragon 8 Gen 3, MT6768, etc.
+  mode            String   // MTP, FASTBOOT, EDL, BROM, SIDELOAD
+  creditsDeducted Int
+  status          String   @default("SUCCESS") // SUCCESS, FAILED, TIMEOUT
+  hwid            String?
+  ipAddress       String?
+  logDetails      String?
+  createdAt       DateTime @default(now())
+}
+
+model CreditTransaction {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type         String   // PURCHASE, DEDUCTION, TRANSFER, ADJUSTMENT
+  amount       Int      // positive for credit, negative for debit
+  balanceAfter Int
+  description  String
+  reference    String?
+  createdAt    DateTime @default(now())
+}
+
+model ResellerTransfer {
+  id                String   @id @default(cuid())
+  resellerId        String
+  reseller          User     @relation(fields: [resellerId], references: [id], onDelete: Cascade)
+  recipientUsername String
+  credits           Int
+  createdAt         DateTime @default(now())
+}
+
+model SupportedDevice {
+  id             String   @id @default(cuid())
+  brand          String   // Samsung, Xiaomi, Tecno, Infinix, itel, Nokia, Vivo, Oppo, Realme, OnePlus
+  modelName      String   // e.g. "Galaxy A54 5G"
+  modelCode      String   // e.g. "SM-A546B"
+  chipset        String   // Exynos 1380 / Snapdragon 8 Gen 2 / Dimensity 7050
+  supportedModes String   // "MTP, Download Mode, ADB"
+  features       String   // "FRP Bypass, Factory Reset, Bootloader Unlock, KG Bypass"
+  creditCost     Int      @default(5)
+  testPointUrl   String?
+  status         String   @default("SUPPORTED") // SUPPORTED, BETA, MAINTENANCE
+  createdAt      DateTime @default(now())
+}
+
+model ToolRelease {
+  id             String   @id @default(cuid())
+  version        String   @unique // "v1.8.5"
+  releaseDate    DateTime @default(now())
+  fileName       String
+  fileSize       String
+  downloadUrl    String
+  checksumSha256 String
+  changelog      String
+  isLatest       Boolean  @default(true)
+  isMandatory    Boolean  @default(false)
+}
+
+model DriverPackage {
+  id          String   @id @default(cuid())
+  name        String   // e.g. "Qualcomm QDLoader 9008 Driver (v2.1.2.2)"
+  category    String   // Qualcomm, MediaTek, Samsung, ADB_Fastboot, LibUSB
+  version     String
+  fileSize    String
+  downloadUrl String
+  description String
+}
+
+model OfficialReseller {
+  id             String   @id @default(cuid())
+  name           String
+  country        String
+  whatsapp       String?
+  telegram       String?
+  website        String?
+  paymentMethods String   // "USDT (TRC20), Binance Pay, UPI, PayPal, Credit Card"
+  tier           String   @default("DISTRIBUTOR") // DISTRIBUTOR, VIP_RESELLER, RESELLER
+}

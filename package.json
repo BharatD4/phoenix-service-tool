@@ -1,0 +1,23 @@
+{
+  "name": "phoenix-service-tool-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel dev",
+    "dev:web": "pnpm --filter @phoenix/web dev",
+    "dev:desktop": "pnpm --filter @phoenix/desktop dev",
+    "build": "pnpm --filter @phoenix/db generate && pnpm -r build",
+    "db:generate": "pnpm --filter @phoenix/db generate",
+    "db:push": "pnpm --filter @phoenix/db push",
+    "db:seed": "pnpm --filter @phoenix/db seed"
+  },
+  "packageManager": "pnpm@11.1.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "prisma"
+    ]
+  }
+}
