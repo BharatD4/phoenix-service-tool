@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Coins,
   Cpu,
@@ -118,16 +119,14 @@ export default function DashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href="http://localhost:3001"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/tool"
             className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-lg shadow-cyan-500/20 hover:opacity-95 transition-all"
           >
             <Terminal className="h-4 w-4" />
-            Launch Windows Client
+            Launch Software Simulator
             <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
       </div>
 

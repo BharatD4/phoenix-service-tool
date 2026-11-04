@@ -97,15 +97,13 @@ export default function HomePage() {
                   <ArrowRight className="h-4 w-4 text-cyan-400" />
                 </Link>
 
-                <a
-                  href="http://localhost:3001"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3.5 text-xs font-mono text-slate-400 hover:text-slate-200 transition-colors"
+                <Link
+                  href="/tool"
+                  className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all"
                 >
-                  <Terminal className="h-3.5 w-3.5 text-slate-400" />
-                  Desktop Client Simulator
-                </a>
+                  <Terminal className="h-4 w-4 text-cyan-400" />
+                  Live Software Simulator
+                </Link>
               </div>
 
               {/* Highlights */}

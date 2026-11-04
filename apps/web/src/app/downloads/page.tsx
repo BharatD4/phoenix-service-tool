@@ -116,15 +116,13 @@ export default function DownloadsPage() {
                 Download Setup v1.8.5 (.exe)
               </a>
 
-              <a
-                href="http://localhost:3001"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/tool"
                 className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-slate-200 hover:bg-white/[0.08] hover:text-white transition-all"
               >
                 <Terminal className="h-4 w-4 text-cyan-400" />
                 Open Desktop Client Simulator
-              </a>
+              </Link>
             </div>
           </div>
 

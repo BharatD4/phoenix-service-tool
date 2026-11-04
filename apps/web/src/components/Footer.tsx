@@ -63,9 +63,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="http://localhost:3001" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400">
-                  Desktop Client Simulator
-                </a>
+                <Link href="/tool" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Desktop Client Simulator (Web)
+                </Link>
               </li>
             </ul>
           </div>
