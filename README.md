@@ -1,7 +1,7 @@
 # ⚡ Phoenix Service Tool (Full-Stack GSM Servicing & Repair Ecosystem)
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-phoenix--service--tool--beta.vercel.app-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://phoenix-service-tool-beta.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-BharatD4%2Fphoenix--service--tool-181717?style=for-the-badge&logo=github)](https://github.com/BharatD4/phoenix-service-tool)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/BharatD4/phoenix-service-tool)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.5.28-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
@@ -11,10 +11,10 @@ It features a **Cloud Web Licensing Portal** and a **Standalone Windows Desktop 
 
 ---
 
-## 🌐 Live Links & Repository
+## 🌐 Live Application & Links
 
-* **GitHub Repository:** [https://github.com/BharatD4/phoenix-service-tool](https://github.com/BharatD4/phoenix-service-tool)
-* **1-Click Live Cloud Deployment:** [Deploy to Vercel Instantly](https://vercel.com/new/clone?repository-url=https://github.com/BharatD4/phoenix-service-tool)
+* 🚀 **Live Production Website:** **[https://phoenix-service-tool-beta.vercel.app](https://phoenix-service-tool-beta.vercel.app)**
+* 💻 **GitHub Repository:** **[https://github.com/BharatD4/phoenix-service-tool](https://github.com/BharatD4/phoenix-service-tool)**
 
 ---
 
@@ -23,7 +23,7 @@ It features a **Cloud Web Licensing Portal** and a **Standalone Windows Desktop 
 ```
 phoenix-service-tool/
 ├── apps/
-│   ├── web/               # Next.js 15 Web Portal & Cloud Licensing Hub (Port 3000)
+│   ├── web/               # Next.js 15 Web Portal & Cloud Licensing Hub (Port 3000 / Live on Vercel)
 │   │   ├── src/app/
 │   │   │   ├── page.tsx               # High-tech Cyberpunk Landing Page with 3D tool mockup
 │   │   │   ├── models/page.tsx        # Searchable Supported Models & Chipsets Matrix (180+ devices)
@@ -51,7 +51,7 @@ phoenix-service-tool/
 
 ## 🚀 Quick Start Guide
 
-### 1. Run the Web Platform (Port 3000)
+### 1. Run the Web Platform Locally (Port 3000)
 ```bash
 # In phoenix-service-tool root
 pnpm dev:web
